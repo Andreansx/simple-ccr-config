@@ -19,6 +19,8 @@
 - ISP Router
 - 1x 1GbE SFP RJ45 plug
 
-
-ISP Router IP address is 10.0.0.1  
-
+## IP addresses
+ISP Router IP address is 10.0.0.1/24  
+CCR WAN is 10.0.0.150/24  
+CCR DHCP LAN is 10.10.0.1/24
+LAN DHCP Pool is 10.10.0.2-10.10.0.254
