@@ -78,3 +78,20 @@ First you should backup your config:
 ```rsc
 /ip dns set servers=1.1.1.1,8.8.8.8 allow-remote-requests=yes
 ```
+### Also we need to add a default route for the router
+```rsc
+/ip route add gateway=10.0.0.1
+```
+### After this, we can ping `google.com` to check if we have a connection to the internet along with DNS functionality
+```zsh
+ping google.com
+PING google.com (142.250.203.206) 56(84) bytes of data.
+64 bytes from waw02s22-in-f14.1e100.net (142.250.203.206): icmp_seq=1 ttl=118 time=14.1 ms
+64 bytes from waw02s22-in-f14.1e100.net (142.250.203.206): icmp_seq=2 ttl=118 time=14.1 ms
+64 bytes from waw02s22-in-f14.1e100.net (142.250.203.206): icmp_seq=3 ttl=118 time=13.8 ms
+64 bytes from waw02s22-in-f14.1e100.net (142.250.203.206): icmp_seq=4 ttl=118 time=13.7 ms
+^C
+--- google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 13.726/13.914/14.111/0.171 ms
+```
