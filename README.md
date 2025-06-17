@@ -16,6 +16,9 @@
 - DHCP server for the LAN Network
 - Masquerading the packets from LAN network when accessing internet throught ISP routers network 
 
+>[!NOTE]
+>Keep in mind that I am **not** using **bridges** here.  
+
 ### Hardware:
 - MikroTik CCR2004-1G-12S+2XS
 - Lenovo ThinkPad T450s
