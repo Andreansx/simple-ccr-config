@@ -35,16 +35,23 @@ nmcli con up <Connection name>
 ```
 ### Switching from static IP to DHCP with `nmcli`
 ```zsh
-nmcli con modiy <Connection name> ipv4.gateway ''\
+nmcli con modify <Connection name> ipv4.gateway ''\
   ipv4.address ''\
   ipv4.method auto
 ```
 
 # Configuration
 ### First step is updating the RouterOS software and RouterBOARD firmware
+First you should backup your config:
+```rsc
+/system backup save name=auto-backup
+```
+
 ```rsc
 /system package update check-for-updates
 /system package update download
+/system reboot
+/system routerboard upgrade
 /system reboot
 ```
 ### Then we need to setup a WAN IP address
@@ -62,4 +69,12 @@ nmcli con modiy <Connection name> ipv4.gateway ''\
 ### Let's create a network for the DHCP LAN
 ```rsc
 /ip dhcp-server network add comment="LAN DHCP network" address=10.10.0.0/24 gateway=10.10.0.1 dns-server=1.1.1.1,8.8.8.8
+```
+### Now a very imporant part is adding a masquerade action for NAT
+```rsc
+/ip firewall nat add chain=srcnat action=masquerade out-interface=sfp-sfpplus12
+```
+### A good practise is adding DNS servers for the router itself
+```rsc
+/ip dns set servers=1.1.1.1,8.8.8.8 allow-remote-requests=yes
 ```

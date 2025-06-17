@@ -1,8 +1,8 @@
-# jun/17/2025 19:44:35 by RouterOS 6.49.18
+# jun/17/2025 20:24:22 by RouterOS 6.49.18
 # software id = 91XQ-9UAD
 #
 # model = CCR2004-1G-12S+2XS
-# serial number = --------
+# serial number = ------
 /interface wireless security-profiles
 set [ find default=yes ] supplicant-identity=MikroTik
 /ip pool
@@ -27,3 +27,5 @@ add action=masquerade chain=srcnat out-interface=sfp-sfpplus12
 add distance=1 gateway=10.0.0.1
 /system clock
 set time-zone-name=Europe/Warsaw
+/system identity
+set name=ccr2004
