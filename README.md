@@ -1,6 +1,6 @@
 <div align="center">
   
-# simple-ccr-config
+# simple dhcp server configuration on a mikrotik router
 ![Static Badge](https://img.shields.io/badge/RouterOS-gray?style=for-the-badge&logo=mikrotik&logoColor=white&logoSize=auto)
 </div>
 
@@ -85,7 +85,8 @@ First you should backup your config:
 ```rsc
 /ip route add gateway=10.0.0.1
 ```
-### After this, we can ping `google.com` to check if we have a connection to the internet along with DNS functionality
+### After this, we can run `ip a` to show our ip address and ping `google.com` to check if we have a connection to the internet along with DNS functionality
+
 ```zsh
 ping google.com
 PING google.com (142.250.203.206) 56(84) bytes of data.
